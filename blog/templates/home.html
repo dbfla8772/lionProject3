@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+        <h1>Blog Project</h1>
+        <div>
+            <div style="margin-right: 550px; text-align: right; font-size: large; font-weight: bold;"><a href="{%url 'newHtml'%}">글쓰기</a></div>
+            <table>
+                <tr>
+                    <td class="row1"><h3>ID</h3></td>
+                    <td class="row1"><h3>제목</h3></td>
+                    <td class="row1"><h3>글쓴이</h3></td>
+                    <td class="row1"><h3>본문요약</h3></td>
+                    <td class="row1"><h3>자세히</h3></td>
+                </tr>
+        {% for blogRow in blogObject %}  <!-- blogObject는 QuerySet 형태로 담겨옴 -->
+                <tr>
+                    <td class="id">{{blogRow.id}}</td>
+                    <td class="title">{{blogRow.title}}</td>
+                    <td class="writer">{{blogRow.writer}}</td>
+                    <td class="summary">{{blogRow.summary}}</td> 
+                    <td class="more"><a href="{%url 'detailHtml' blogRow.id %}">...more</a></td>
+                </tr>
+        {% endfor %}
+            </table>
+        </div>
+{% endblock %}

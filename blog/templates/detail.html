@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DetailHtml</title>
+    <style>
+        body {  
+            text-align: center; 
+            background-image: url("https://t1.daumcdn.net/cfile/tistory/99F176335A23EEAD30");
+        }
+        table,td {
+            margin: 50px auto; 
+            border: 1px solid black;
+        }
+        tr {
+            height: 80px;
+            background-color: white;
+        }
+        .row1 { 
+            width: 600px;
+            background-color: skyblue;
+        }
+        .col1 { 
+            width: 100px;
+            color: blue;
+        }
+        .body { width: 500px;}
+       
+    </style>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td class="row1" colspan="2"><h1>{{blogModel.title}}</h1></td>
+            </tr>
+            <tr>
+                <td class="col1"><h3>작성자</h3></td>
+                <td>{{blogModel.writer}}</td>
+            </tr>
+            <tr>
+                <td class="col1"><h3>날짜</34></td>
+                <td>{{blogModel.pub_date}}</td>
+            </tr>
+            <tr>
+                <td class="col1"><h3>본문</h3></td>
+                <td class="body">{{blogModel.body}}</td>
+            </tr>
+        </table>
+    </div>
+    <a href="{% url 'editHtml' blogModel.id %}" style="font-size: large; font-style: italic;">수정하기</a>  
+    <a href="{% url 'deletePost' blogModel.id %}" style="font-size: large; font-style: italic;">삭제하기</a>
+</body>
+</html>

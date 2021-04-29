@@ -1,0 +1,47 @@
+<!-- 공통된 css나 js 코드를 작성하고 사용할 html 파일에 상속받게 해서 사용, 간결한 코드를 사용 -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BLOG</title>
+        <style>
+            body {  
+                text-align: center; 
+                background-image: url("https://t1.daumcdn.net/cfile/tistory/99F176335A23EEAD30");
+            }
+            h1 {    font-family: 'Impact';  }
+            table, td { 
+                margin: auto; 
+                border: 1px solid black;
+                background-color: white;
+            }
+            tr {    height: 90px;  }
+            .row1 {    
+                background-color: skyblue;
+            }
+            .id {   
+                width: 80px;
+                color: red;
+                font-weight: bold;   
+            }
+            .title {    
+                width: 150px; 
+                font-weight: bold;
+            }
+            .writer {   width: 100px;   }
+            .summary {  width: 400px;   }
+            .more {    
+                width:  100px;
+                font-style: italic;
+            }
+        </style>    
+    </head>
+    <body>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

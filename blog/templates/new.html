@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BLOG</title>
+        <style>
+            body {  
+                text-align: center; 
+                background-image: url("https://t1.daumcdn.net/cfile/tistory/99F176335A23EEAD30");
+            }
+            h1 {    font-family: 'Impact';  }
+            table {
+                border: black 2px solid;
+                width: 500px;
+                height: 400px;
+                margin: 50px auto; 
+            }
+            input, textarea {
+                background-color: beige;
+            }
+           .col1 {
+               font-weight: bold;
+               font-size: large;
+           }
+        </style>
+    </head>
+    <body>
+        <h1>Write Your Blog</h1> 
+        <form action="{%url 'createPost' %}" method="post">  <!-- 함수 2개(newHtml, createPost)와 url을 연결-->
+            {%csrf_token%} <!-- post 방식일 떄 반드시 써주어여 함. 서버가 csrf 공격이 아님을 감지함. -->
+            <table>
+                <tr>
+                    <td class="col1">제목</td>
+                    <td><input type="text" name="title"></td>
+                </tr>
+                <tr>
+                    <td class="col1">작성자</td>
+                    <td><input type="text" name="writer"></td>
+                </tr>
+                <tr>
+                    <td class="col1">본문</td>
+                    <td><textarea name="body" cols="30" rows="10"></textarea></td>
+                </tr>
+            </table>
+            <button type="submit">submit</button>
+        </form>
+    </body>
+</html>
